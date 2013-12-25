@@ -15,11 +15,13 @@
 <body>
   <h1>TODO list</h1>
   <div ng-controller="mainCtrl">
-    <p>Finished Task: # {{getDoneCount()}}/ {{tasks.length}}</p>
+    <p>Finished Task: # {{getDoneCount()}}/ {{tasks.length}}
+    <button ng-click="deleteDone()">Delete Finished</button></p>
     <ul>
       <li ng-repeat="task in tasks">
         <input type="checkbox" ng-model="task.done">
         <span class="done-{{task.done}}">{{task.body}}</span>
+        <a href ng-click="tasks.splice($index,1)">[x]</a>
       </li>
     </ul>
     <form ng-submit="addNew()">
